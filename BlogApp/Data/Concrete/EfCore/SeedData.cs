@@ -19,11 +19,11 @@ namespace BlogApp.Data.Concrete.EfCore
                 if (!context.Tags.Any())
                 {
                     context.Tags.AddRange(
-                        new Entity.Tag{Text="web programlama"},
-                        new Entity.Tag{Text="backend"},
-                        new Entity.Tag{Text="frontend"},
-                        new Entity.Tag{Text="fullstack"},
-                        new Entity.Tag{Text="php"}
+                        new Entity.Tag{Text="web programlama", Url="web-programlama"},
+                        new Entity.Tag{Text="backend", Url="backend"},
+                        new Entity.Tag{Text="frontend", Url="frontend"},
+                        new Entity.Tag{Text="fullstack", Url="fullstack"},
+                        new Entity.Tag{Text="php", Url="php"}
                     );
                     context.SaveChanges();
                 }
@@ -44,6 +44,7 @@ namespace BlogApp.Data.Concrete.EfCore
                         new Entity.Post{
                         Title="Asp .net core",
                         Content="aspnet core dersleri",
+                        Url="aspnet-core",
                         IsActive=true,
                         PublishedOn=DateTime.Now.AddDays(-10),
                         Tags=context.Tags.Take(3).ToList(),
@@ -53,6 +54,7 @@ namespace BlogApp.Data.Concrete.EfCore
                         new Entity.Post{
                         Title="Php",
                         Content="Php core dersleri",
+                        Url="php",
                         IsActive=true,
                         PublishedOn=DateTime.Now.AddDays(-5),
                         Tags=context.Tags.Take(2).ToList(),
@@ -62,8 +64,29 @@ namespace BlogApp.Data.Concrete.EfCore
                         new Entity.Post{
                         Title="Django",
                         Content="Django dersleri",
+                        Url="django",
                         IsActive=true,
-                        PublishedOn=DateTime.Now.AddDays(-20),
+                        PublishedOn=DateTime.Now.AddDays(-30),
+                        Tags=context.Tags.Take(4).ToList(),
+                        Image="3.jpg",
+                        UserId=2
+                        },
+                        new Entity.Post{
+                        Title="React",
+                        Content="React dersleri",
+                        Url="react-dersleri",
+                        IsActive=true,
+                        PublishedOn=DateTime.Now.AddDays(-40),
+                        Tags=context.Tags.Take(4).ToList(),
+                        Image="3.jpg",
+                        UserId=2
+                        },
+                        new Entity.Post{
+                        Title="Angular",
+                        Content="Angular dersleri",
+                        Url="angular-dersleri",
+                        IsActive=true,
+                        PublishedOn=DateTime.Now.AddDays(-50),
                         Tags=context.Tags.Take(4).ToList(),
                         Image="3.jpg",
                         UserId=2
