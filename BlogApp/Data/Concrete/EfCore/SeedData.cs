@@ -52,8 +52,8 @@ namespace BlogApp.Data.Concrete.EfCore
                         Image="1.jpg",
                         UserId=1,
                         Comments=new List<Comment>{
-                             new Comment{Text="Harika bir kurs",PublishedOn=new DateTime(),UserId=1},
-                             new Comment{Text="Müthiş bir kurs",PublishedOn=new DateTime(),UserId=2},
+                             new Comment{Text="Harika bir kurs",PublishedOn=DateTime.Now.AddDays(-10),UserId=1},
+                             new Comment{Text="Müthiş bir kurs",PublishedOn=DateTime.Now.AddDays(-20),UserId=2},
                              }
                         },
                         new Entity.Post{
