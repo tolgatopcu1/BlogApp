@@ -9,11 +9,36 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="nav navbar-expand-lg bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm">
         <div class="container">
             <a href="/" class="navbar-brand">
                 <i class="bi bi-code">BlogApp</i>
             </a>
+
+            <ul class="navbar-nav ms-auto">
+                @if(User.Identity!.IsAuthenticated)
+                {
+                    <li class="nav-item">
+                        <a href="/posts/list" class="nav-link">Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/profile/@User.Identity.Name" class="nav-link">@User.Identity.Name</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/users/logout" class="nav-link">Logout</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a href="/users/login" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/users/register" class="nav-link">Register</a>
+                    </li>
+                }
+                
+            </ul>
         </div>
     </nav>
     <div class="container mt-3">

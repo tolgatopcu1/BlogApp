@@ -32,8 +32,8 @@ namespace BlogApp.Data.Concrete.EfCore
                 if (!context.Users.Any())
                 {
                     context.Users.AddRange(
-                        new Entity.User{UserName="bulenttopcu",Image="p1.jpg"},
-                        new Entity.User{UserName="tolgatopcu",Image="p2.jpg"}
+                        new Entity.User{UserName="bulenttopcu",Name="Bülent Topçu",Email="bulenttopcu@gmail.com",Password="123456", Image="p1.jpg"},
+                        new Entity.User{UserName="tolgatopcu",Name="Tolga Topçu",Email="tolgatopcu@gmail.com",Password="123456",Image="p2.jpg"}
 
                     );
                     context.SaveChanges();
@@ -45,6 +45,7 @@ namespace BlogApp.Data.Concrete.EfCore
                         new Entity.Post{
                         Title="Asp .net core",
                         Content="aspnet core dersleri",
+                        Description="aspnet core dersleri",
                         Url="aspnet-core",
                         IsActive=true,
                         PublishedOn=DateTime.Now.AddDays(-10),
@@ -59,6 +60,7 @@ namespace BlogApp.Data.Concrete.EfCore
                         new Entity.Post{
                         Title="Php",
                         Content="Php core dersleri",
+                        Description="Php core dersleri",
                         Url="php",
                         IsActive=true,
                         PublishedOn=DateTime.Now.AddDays(-5),
@@ -69,6 +71,7 @@ namespace BlogApp.Data.Concrete.EfCore
                         new Entity.Post{
                         Title="Django",
                         Content="Django dersleri",
+                        Description="Django dersleri",
                         Url="django",
                         IsActive=true,
                         PublishedOn=DateTime.Now.AddDays(-30),
@@ -79,6 +82,7 @@ namespace BlogApp.Data.Concrete.EfCore
                         new Entity.Post{
                         Title="React",
                         Content="React dersleri",
+                        Description="React dersleri",
                         Url="react-dersleri",
                         IsActive=true,
                         PublishedOn=DateTime.Now.AddDays(-40),
@@ -89,6 +93,7 @@ namespace BlogApp.Data.Concrete.EfCore
                         new Entity.Post{
                         Title="Angular",
                         Content="Angular dersleri",
+                        Description="Angular dersleri",
                         Url="angular-dersleri",
                         IsActive=true,
                         PublishedOn=DateTime.Now.AddDays(-50),
