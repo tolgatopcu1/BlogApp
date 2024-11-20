@@ -15,13 +15,15 @@ namespace BlogApp.Controllers
     {
         private IPostRepository _postRepository;
         private ICommentRepository _commentRepository;
+        private BlogContext _blogContext;
 
         private ITagRepository _tagRepository;
-        public PostsController(IPostRepository postRepository, ICommentRepository commentRepository,ITagRepository tagRepository)
+        public PostsController(IPostRepository postRepository, ICommentRepository commentRepository,ITagRepository tagRepository,BlogContext blogContext)
         {
             _postRepository = postRepository;
             _commentRepository = commentRepository;
             _tagRepository = tagRepository;
+            _blogContext = blogContext;
         }
 
         public async Task<IActionResult> Index(string url)
@@ -175,6 +177,13 @@ namespace BlogApp.Controllers
             }
             ViewBag.Tags=_tagRepository.Tags.ToList();
             return View(model);
+        }
+        [Authorize]
+        public IActionResult Delete(int id)
+        {   var deletedPost = _postRepository.Posts.FirstOrDefault(p=>p.PostId==id);
+            _blogContext.Posts.Remove(deletedPost);
+            _blogContext.SaveChanges();
+            return RedirectToAction("List");
         }
     }
 }

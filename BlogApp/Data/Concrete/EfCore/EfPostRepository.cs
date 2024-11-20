@@ -21,6 +21,11 @@ namespace BlogApp.Data.Concrete
             _context.SaveChanges();
         }
 
+        public void Delete(Post post)
+        {
+            _context.Posts.Remove(post);
+        }
+
         public void EditPost(Post post)
         {
             var entity = _context.Posts.FirstOrDefault(i=>i.PostId == post.PostId);
